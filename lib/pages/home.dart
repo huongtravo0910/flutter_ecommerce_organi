@@ -1,9 +1,12 @@
 import 'package:carousel_pro/carousel_pro.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_drawer/components/horizontal_listview.dart';
 import 'package:flutter_drawer/components/products.dart';
 import 'package:flutter_drawer/pages/cart.dart';
+import 'package:flutter_drawer/pages/login.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -39,6 +42,16 @@ class _HomePageState extends State<HomePage> {
         title: Text("Ogani Shop"),
         actions: <Widget>[
           IconButton(
+            onPressed: () async {
+              // FirebaseAuth.instance.signOut();
+              GoogleSignIn googleSignIn = GoogleSignIn();
+              await googleSignIn.signOut();
+              Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Login(),
+                  ));
+            },
             icon: Icon(
               Icons.search,
               color: Colors.white,
