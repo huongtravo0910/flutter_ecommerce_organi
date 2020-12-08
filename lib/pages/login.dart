@@ -32,6 +32,10 @@ class _LoginState extends State<Login> {
     preferences = await SharedPreferences.getInstance();
     isLogedin = await googleSignIn.isSignedIn();
 
+    // debugPrint(isLogedin.toString());
+
+    // googleSignIn.signOut();
+
     if (isLogedin) {
       Navigator.pushReplacement(
           context,
@@ -109,6 +113,7 @@ class _LoginState extends State<Login> {
       ),
       body: Stack(
         children: <Widget>[
+          Image.asset('images/hero/banner.jpg'),
           Visibility(
               visible: loading ?? true,
               child: Center(
