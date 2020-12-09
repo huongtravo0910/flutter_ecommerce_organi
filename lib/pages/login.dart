@@ -103,17 +103,19 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: new Text(
-          "Login",
-          style: TextStyle(color: Colors.red.shade900),
-        ),
-      ),
       body: Stack(
         children: <Widget>[
-          Image.asset('images/hero/banner.jpg'),
+          Image.asset(
+            'images/back.jpg',
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+          ),
+          Container(
+            color: Colors.green.withOpacity(0.2),
+            width: double.infinity,
+            height: double.infinity,
+          ),
           Visibility(
               visible: loading ?? true,
               child: Center(
@@ -121,7 +123,7 @@ class _LoginState extends State<Login> {
                   alignment: Alignment.center,
                   color: Colors.white.withOpacity(0.9),
                   child: CircularProgressIndicator(
-                    valueColor: AlwaysStoppedAnimation<Color>(Colors.red),
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
                   ),
                 ),
               ))
@@ -132,7 +134,7 @@ class _LoginState extends State<Login> {
           padding: const EdgeInsets.only(
               left: 12.0, right: 12.0, top: 8.0, bottom: 8.0),
           child: FlatButton(
-              color: Colors.red,
+              color: Colors.green,
               onPressed: () {
                 handleSignIn();
               },
