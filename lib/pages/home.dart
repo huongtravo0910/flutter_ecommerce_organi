@@ -42,16 +42,7 @@ class _HomePageState extends State<HomePage> {
         title: Text("Ogani Shop"),
         actions: <Widget>[
           IconButton(
-            onPressed: () async {
-              // FirebaseAuth.instance.signOut();
-              GoogleSignIn googleSignIn = GoogleSignIn();
-              await googleSignIn.signOut();
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Login(),
-                  ));
-            },
+            onPressed: () {},
             icon: Icon(
               Icons.search,
               color: Colors.white,
@@ -140,6 +131,25 @@ class _HomePageState extends State<HomePage> {
                 title: Text("About"),
                 leading: Icon(
                   Icons.help,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+            InkWell(
+              onTap: () async {
+                // FirebaseAuth.instance.signOut();
+                GoogleSignIn googleSignIn = GoogleSignIn();
+                await googleSignIn.signOut();
+                Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Login(),
+                    ));
+              },
+              child: ListTile(
+                title: Text("Log out"),
+                leading: Icon(
+                  Icons.exit_to_app,
                   color: Colors.grey,
                 ),
               ),
